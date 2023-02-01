@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Mcard = styled.div`
-position: absolute;
+
 width: 650px;
 height: 275px;
 left: 725px;

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const LCard= styled.div`
-position: absolute;
+
 width: 650px;
 height: 560px;
 left: 65px;
