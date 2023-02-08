@@ -1,13 +1,19 @@
 import React from "react";
 import styled from "styled-components"
-import LargeCard from "../components/LargeCard";
-import MediumCard from "../components/MediumCard";
-import SmallCard from "../components/SmallCard";
+import { Scard, TestMcard} from "../components/Cards";
+import GitHubCard from "../components/GitHubCard";
+import LinkedInCard from "../components/LinkedInCard";
+import GfreeCard from "../components/GfreeCard";
+import MenuCard from "../components/MenuCard";
+import RepoCard from "../components/RepoCard";
+import MediumArticle from "../components/MediumArticle";
+import TestMediumArticle from "../components/TestMedium";
+
 const FaceContainer = styled.div`
 display: flex;
 gap: 10px;
-align-items: center;
-margin-Left: 100px
+padding-top: 50px;
+padding-left: 100px;
 `
 const LeftContainer= styled.div`
 display: flex;
@@ -17,24 +23,37 @@ gap:10px;
 const GitHubReposContainer = styled.div`
 display: flex;
 flex-direction: row;
-gap:10px`
+gap:10px`;
+const InfoContainer =styled.div`
+display: flex;
+flex-wrap: wrap;
+align-content: flex-start;
+gap: 10px;
+`
+
+
+
+
+
 class Face extends React.Component{
 
     render(){
         return(
             <FaceContainer>
             <LeftContainer>
-            <LargeCard/>
+            <GfreeCard/>
             <GitHubReposContainer>
-            <SmallCard/>
-            <SmallCard/>
+                <RepoCard/>
             </GitHubReposContainer>
             </LeftContainer>
-            <SmallCard/>
-            <SmallCard/>
-            <SmallCard/>
-            <MediumCard/>
-            </FaceContainer>
+            <InfoContainer>
+            <GitHubCard/>
+            <MenuCard/>
+            <Scard/>
+            <LinkedInCard/>
+            <TestMediumArticle/>
+            </InfoContainer>
+            </FaceContainer>  
         )
     }
 }
