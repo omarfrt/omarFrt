@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {motion} from "framer-motion"
 
-export const LCard= styled.div`
+export const LCard= styled(motion.div)`
 
 width: 850px;
 height: 660px;
@@ -12,14 +12,14 @@ background: #FFFFFF;
 
 `;
 
-export const Scard= styled.div`
+export const Scard= styled(motion.div)`
 
 width: 420px;
 height: 325px;
 
 border-radius: 20px;`;
 
-export const Mcard = styled.div`
+export const Mcard = styled(motion.div)`
 
 width: 850px;
 height: 325px;

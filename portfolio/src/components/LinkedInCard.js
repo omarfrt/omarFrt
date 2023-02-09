@@ -12,14 +12,15 @@ align-items: center;
 justify-content: center;
 `;
 
-class LinkedInCard extends React.Component{
-    render(){
-        return(
-            <LinkedIn>
-            <img src="./LinkedIn-Logo.png"/>
-            </LinkedIn>
-        )
-    }
+export const LinkedInCard = ()=>{
+    return(
+        <a href={"https://www.linkedin.com/in/omar-fertat-30953717b/"} target="_blank" rel='noreferrer' style={{textDecoration: "none"}}>
+        <LinkedIn whileHover={{ scale: 1.05, }}
+              whileTap={{ scale: 1.2  }}>
+        <img src="./LinkedIn-Logo.png" alt="Linkedin"/>
+        </LinkedIn>
+        </a>
+    )
 }
 
 export default LinkedInCard;

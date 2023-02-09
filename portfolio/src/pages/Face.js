@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components"
-import { Scard, TestMcard} from "../components/Cards";
+import { Scard} from "../components/Cards";
 import GitHubCard from "../components/GitHubCard";
 import LinkedInCard from "../components/LinkedInCard";
 import GfreeCard from "../components/GfreeCard";
 import MenuCard from "../components/MenuCard";
-import RepoCard from "../components/RepoCard";
-import MediumArticle from "../components/MediumArticle";
-import TestMediumArticle from "../components/TestMedium";
+import {RepoCard} from "../components/RepoCard";
+import {MediumArticle} from "../components/MediumArticle";
 
 const FaceContainer = styled.div`
 display: flex;
@@ -32,29 +31,33 @@ gap: 10px;
 `
 
 
-
-
-
-class Face extends React.Component{
-
-    render(){
-        return(
-            <FaceContainer>
-            <LeftContainer>
-            <GfreeCard/>
-            <GitHubReposContainer>
-                <RepoCard/>
-            </GitHubReposContainer>
-            </LeftContainer>
-            <InfoContainer>
-            <GitHubCard/>
-            <MenuCard/>
-            <Scard/>
-            <LinkedInCard/>
-            <TestMediumArticle/>
-            </InfoContainer>
-            </FaceContainer>  
-        )
-    }
+export const Face = ()=>{
+    return(
+        <FaceContainer>
+        <LeftContainer>
+        <GfreeCard/>
+        <GitHubReposContainer>
+            <RepoCard Title={"GfreeAPI"} 
+            Description={"ExpressJS RESTful API"} 
+            Language={"JavaScript"} 
+            Url={"https://github.com/omarfrt/GfreeAPI"}/>
+             <RepoCard Title={"store-api"} 
+            Description={"MexicoBookStore shop backend api "} 
+            Language={"JavaScript"} 
+            Url={"https://github.com/omarfrt/store-api"}/>
+        </GitHubReposContainer>
+        </LeftContainer>
+        <InfoContainer>
+        <GitHubCard/>
+        <MenuCard/>
+        <Scard/>
+        <LinkedInCard/>
+        <MediumArticle/>
+        </InfoContainer>
+        </FaceContainer>  
+    )
 }
+
+
+
 export default Face

@@ -1,27 +1,38 @@
-import React from "react";
+import React from 'react';
 import styled from "styled-components";
-import { Mcard } from "./Cards";
+import { TestMcard } from "./Cards";
 import Articles from "../mediumArticles.json"
-const ArticleContainer= styled(Mcard)`
+
+const ArticleContainer= styled(TestMcard)`
 background: #FFFFFF;
-position: relative;
 display: flex;
 flex-direction: column;
-padding-left: 50px;
+padding: 50px 35px 0px 35px ;
+gap:30px
 `;
-const PrevTitle = styled.div`
-
-
+const InfoImgContainer = styled.div`
+display: flex;
+justify-content: space-between;
+gap:10px`;
+const InfoContainer = styled.div`
+display: flex;
+flex-direction: column;
+gap: 25px
+`
+const PrevTitle = styled.a`
 font-family: 'Inter';
 font-style: normal;
 font-weight: 700;
 font-size: 22px;
 line-height: 28px;
-
-
 color: #000000;
-
-
+text-decoration-line: none;
+&:hover{
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+    cursor: pointer;
+}
 `;
 const PrevDescription = styled.div`
 
@@ -36,7 +47,7 @@ line-height: 28px;
 color: #454545;
 
 `
-const PrevLink = styled.div`
+const PrevLink = styled.a`
 font-family: 'Inter';
 font-style: normal;
 font-weight: 500;
@@ -46,38 +57,37 @@ line-height: 28px;
 /* or 215% */
 
 color: #646464;
+&:hover{
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+    cursor: pointer;
+}
 
 `
 const PrevImg = styled.div`
-width: 203px;
-height: 161px;
+width: 1120px;
+height: 220px;
 border-radius: 20px;
-position: absolute;
-top: 20px;
-right: 10px;
+background-image: url(${Articles.thumbnail_url});
 
 `
-// http://api.linkpreview.net/?key=5b54e80a65c77848ceaa4630331e8384950e09d392365&q=https://medium.com/@iroonix5/can-blockchain-fix-fairtrade-problems-43e28c4578b5
-class MediumArticle extends React.Component{
-        constructor(props){
-            super(props);
-            this.state={
-                error: null,
-                isLoaded: false,
-                items:Articles[0]
-            }
-        }
-    render(){
-        return(
-            <ArticleContainer>
-             <PrevTitle>{this.state.items.title}</PrevTitle>
-             <PrevDescription>{this.state.items.description }</PrevDescription>
-             <PrevLink>{this.state.items.url}</PrevLink>
-             <PrevImg ><img src={this.state.items.thumbnail_url} alt="preview" width="100%" height="100%" /></PrevImg>
-             {console.log({art: Articles})}
-            </ArticleContainer>
-        )
-    }
-}
+export const MediumArticle = ()=>{
 
-export default MediumArticle;
+    return (
+        <a href={Articles.url} target="_blank" rel='noreferrer' style={{textDecoration: "none"}}>
+            <ArticleContainer  whileHover={{ scale: 1.05, }}
+            whileTap={{ scale: 1.2  }} >
+            <InfoImgContainer>
+                <InfoContainer>
+                <PrevTitle href={Articles.url} target="_blank">{Articles.title}</PrevTitle>
+             <PrevDescription>{Articles.description }</PrevDescription>
+                </InfoContainer>
+             <PrevImg />
+            </InfoImgContainer>
+             <PrevLink>{Articles.url}</PrevLink>
+            </ArticleContainer>
+        </a>
+        
+    )
+}

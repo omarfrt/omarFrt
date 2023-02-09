@@ -12,6 +12,7 @@ gap: 20px;
 const GitHubLogoContainer = styled.div`
 text-align: center;
 padding: 25px 0;
+
 `;
 const ContentContainer = styled.div`
 display: flex;
@@ -34,6 +35,12 @@ align-items: center;
 text-transform: capitalize;
 
 color: #0969DA;
+&:hover{
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+    cursor: pointer;
+}
 `;
 
 const PublicRepo= styled.div`
@@ -102,25 +109,26 @@ text-transform: capitalize;
 color: #797777;`
 
 
-class RepoCard extends React.Component{
-    render(){
-        return(
-            <Repo>
+export const RepoCard = (props)=>{
+    const { Title, Description, Language, Url } = props;
+    return(
+        <a href={Url} target="_blank" rel='noreferrer' style={{textDecoration: "none"}}>
+
+            <Repo whileHover={{ scale: 1.05, }}
+            whileTap={{ scale: 1.2  }}>
                 <GitHubLogoContainer> <img src="./GitHub.png" alt="GitHub" /> </GitHubLogoContainer>
                 <ContentContainer>
                     <TitleContainer>
-                   <RepoTitle> GfreeAPI </RepoTitle>                   
+                   <RepoTitle> {Title} </RepoTitle>                   
                    <PublicRepo>Public</PublicRepo>                   
                     </TitleContainer>
-                   <RepoDescription>ExpressJS RESTful API</RepoDescription>
+                   <RepoDescription>{Description}</RepoDescription>
                    <JsContainer>
                      <YelloBut/>
-                     <JavascriptTxt>JavaScript</JavascriptTxt>
+                     <JavascriptTxt>{Language}</JavascriptTxt>
                    </JsContainer>
                 </ContentContainer>
             </Repo>
-        )
-    }
+        </a>
+    )
 }
-
-export default RepoCard;

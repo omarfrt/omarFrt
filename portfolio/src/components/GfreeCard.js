@@ -14,12 +14,13 @@ background-size: cover;
     box-shadow: 0px 30px 100px rgba(168, 172, 176, 0.19);
   }
 `;
-
-class GfreeCard extends React.Component{
-
-    render(){
-        return <Gfree/>;
-    }
+export const GfreeCard = ()=>{
+  return (
+    <a href={"https://gfree.co/"} target="_blank" rel='noreferrer' style={{textDecoration: "none"}}>
+      <Gfree  whileHover={{ scale: 1.05, }}
+            whileTap={{ scale: 1.2  }}/>
+    </a>
+  )
 }
 
 export default GfreeCard;

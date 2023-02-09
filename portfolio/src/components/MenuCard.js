@@ -10,7 +10,7 @@ display: flex;
 flex-direction: column;
 gap: 25px;
 `
-const MenuText = styled.div`
+const MenuText = styled.a`
 display: flex;
 gap: 25px;
 font-family: Inter;
@@ -22,6 +22,13 @@ display: flex;
 align-items: center;
 text-transform: capitalize;
 color: #C5C2C2;
+text-decoration: none;
+&:hover{
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+    cursor: pointer;
+}
 `;
 const fadeToBlack = keyframes` 
     from{
@@ -41,19 +48,16 @@ animation: ${fadeToBlack} alternate  2s infinite;
 border-radius:100%;
 `;
 
-class MenuCard extends React.Component{
-
-    render(){
-        return(
-            <Scard>
-                <ContentContainer>
-                <MenuText>Portfolio <YellowBlob/></MenuText>
-                <MenuText>GitHub</MenuText>
-                <MenuText>LinkedIn</MenuText>
-                <MenuText>Contact Me !</MenuText>
-                </ContentContainer>
-            </Scard>
-        )
-    }
+export const MenuCard = ()=>{
+    return(
+        <Scard >
+            <ContentContainer>
+            <MenuText>Portfolio <YellowBlob/></MenuText>
+            <MenuText href={"https://github.com/omarfrt"} target="_blank" rel='noreferrer' >GitHub</MenuText>
+            <MenuText href={"https://www.linkedin.com/in/omar-fertat-30953717b/"} target="_blank" rel='noreferrer' >LinkedIn</MenuText>
+            <MenuText href={"mailto:omarfertat96@gmail.com"} target="_blank" rel='noreferrer' >Contact Me !</MenuText>
+            </ContentContainer>
+        </Scard>
+    )
 }
 export default MenuCard;
