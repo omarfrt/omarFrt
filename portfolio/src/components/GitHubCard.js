@@ -18,7 +18,13 @@ export const GitHubCard = ()=>{
 
       <GitHub whileHover={{ scale: 1.05, }}
               whileTap={{ scale: 1.2  }}>
-                <motion.img drag whileDrag={{ scale: 0.8 }} dragSnapToOrigin={true} src="./Mark.png" width="115px" height="114px"/>
+                <motion.img drag whileDrag={{ scale: 0.8 }} dragSnapToOrigin={true} initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01]
+      }} src="./Mark.png" width="115px" height="114px"/>
               </GitHub>
     </a>
   )

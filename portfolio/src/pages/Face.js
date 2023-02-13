@@ -7,23 +7,24 @@ import GfreeCard from "../components/GfreeCard";
 import MenuCard from "../components/MenuCard";
 import {RepoCard} from "../components/RepoCard";
 import {MediumArticle} from "../components/MediumArticle";
+import { motion } from "framer-motion";
 
-const FaceContainer = styled.div`
+const FaceContainer = styled(motion.div)`
 display: flex;
 gap: 10px;
 padding-top: 50px;
 padding-left: 100px;
 `
-const LeftContainer= styled.div`
+const LeftContainer= styled(motion.div)`
 display: flex;
 flex-direction: column;
 gap:10px;
 `
-const GitHubReposContainer = styled.div`
+const GitHubReposContainer = styled(motion.div)`
 display: flex;
 flex-direction: row;
 gap:10px`;
-const InfoContainer =styled.div`
+const InfoContainer = styled(motion.div)`
 display: flex;
 flex-wrap: wrap;
 align-content: flex-start;
@@ -33,7 +34,7 @@ gap: 10px;
 
 export const Face = ()=>{
     return(
-        <FaceContainer>
+        <FaceContainer >
         <LeftContainer>
         <GfreeCard/>
         <GitHubReposContainer>
